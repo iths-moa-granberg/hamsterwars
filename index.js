@@ -4,6 +4,9 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
+const auth = require('./api/auth');
+app.use(auth);
+
 const assetsRoute = require('./api/routes/assets');
 const hamstersRoute = require('./api/routes/hamsters');
 const chartsRoute = require('./api/routes/charts');
