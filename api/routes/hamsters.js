@@ -7,9 +7,7 @@ router.get('/', async (req, res) => {
     try {
         const snapshots = await db.collection('hamsters').get();
         const hamsters = [];
-        snapshots.forEach(doc => {
-            hamsters.push(doc.data());
-        });
+        snapshots.forEach(doc => hamsters.push(doc.data()));
         res.send(hamsters);
     } catch (err) {
         res.status(500).send(err);
@@ -21,9 +19,8 @@ router.get('/random', async (req, res) => {
     try {
         const snapshots = await db.collection('hamsters').get();
         const hamsters = [];
-        snapshots.forEach(doc => {
-            hamsters.push(doc.data());
-        });
+        snapshots.forEach(doc => hamsters.push(doc.data()));
+        
         const randomHamster = hamsters[Math.floor(Math.random() * hamsters.length)];
         res.send(randomHamster);
     } catch (err) {
