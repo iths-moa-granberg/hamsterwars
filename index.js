@@ -4,11 +4,11 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
-const assetsRoute = require('./routes/assets');
-const hamstersRoute = require('./routes/hamsters');
-const chartsRoute = require('./routes/charts');
-const gamesRoute = require('./routes/games');
-const statsRoute = require('./routes/stats');
+const assetsRoute = require('./api/routes/assets');
+const hamstersRoute = require('./api/routes/hamsters');
+const chartsRoute = require('./api/routes/charts');
+const gamesRoute = require('./api/routes/games');
+const statsRoute = require('./api/routes/stats');
 
 app.use('/assets', assetsRoute);
 app.use('/hamsters', hamstersRoute);
