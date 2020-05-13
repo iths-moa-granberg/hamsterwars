@@ -19,16 +19,15 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const game = req.body;
-        game['timestamp'] = new Date();
-        game['id'] = new Date().getUTCMilliseconds();
+        game.timestamp = new Date();
+        game.id = new Date().getUTCMilliseconds();
 
         if (!checkKeys(game)) {
             throw 'Error: Incorrect keys';
         }
 
-        await db.collection('games').doc(game.id.toString()).set(game)
-            .then(res.send({ msg: 'Game added' }))
-            .catch(err => { throw err });
+        await db.collection('games').doc(game.id.toString()).set(game);
+        res.send({ msg: 'Game added' });
 
     } catch (err) {
         res.status(500).send(err);

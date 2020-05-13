@@ -20,7 +20,7 @@ router.get('/random', async (req, res) => {
         const snapshots = await db.collection('hamsters').get();
         const hamsters = [];
         snapshots.forEach(doc => hamsters.push(doc.data()));
-        
+
         const randomHamster = hamsters[Math.floor(Math.random() * hamsters.length)];
         res.send(randomHamster);
     } catch (err) {
@@ -54,9 +54,8 @@ router.put('/:id/result', async (req, res) => {
             throw 'Error: Incorrect request';
         }
 
-        db.collection('hamsters').doc(req.params.id).set(hamster)
-            .then(res.send({ msg: `Hamster ${req.params.id} updated` }))
-            .catch(err => { throw err });
+        await db.collection('hamsters').doc(req.params.id).set(hamster)
+        res.send({ msg: `Hamster ${req.params.id} updated` });
 
     } catch (err) {
         res.status(500).send(err);
@@ -76,9 +75,8 @@ router.post('/', async (req, res) => {
             throw 'Error: Incorrect keys';
         }
 
-        db.collection('hamsters').doc(hamster.id.toString()).set(hamster)
-            .then(res.send({ msg: `Hamster ${hamster.id} added` }))
-            .catch(err => { throw err });
+        await db.collection('hamsters').doc(hamster.id.toString()).set(hamster);
+        res.send({ msg: `Hamster ${hamster.id} added` });
 
     } catch (err) {
         res.status(500).send(err);
@@ -86,15 +84,15 @@ router.post('/', async (req, res) => {
 });
 
 const checkKeys = obj => {
-    return isNumber(obj['id'])
-        && isNumber(obj['age'])
-        && isNumber(obj['wins'])
-        && isNumber(obj['defeats'])
-        && isNumber(obj['games'])
-        && isString(obj['name'])
-        && isString(obj['imgName'])
-        && isString(obj['favFood'])
-        && isString(obj['loves']);
+    return isNumber(obj.id)
+        && isNumber(obj.age)
+        && isNumber(obj.wins)
+        && isNumber(obj.defeats)
+        && isNumber(obj.games)
+        && isString(obj.name)
+        && isString(obj.imgName)
+        && isString(obj.favFood)
+        && isString(obj.loves)
 }
 
 const isString = value => {
