@@ -1,0 +1,28 @@
+:root {
+    --main-color: #8e8e8e;
+    --accent-color: #224661;
+    --white: #F1F0EF;
+    --black: #281A22;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+main {
+    padding-bottom: 2.5em;
+}
+
+.hamsters {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
