@@ -1,31 +1,41 @@
 {
-  "name": "hamsterwars",
-  "version": "1.0.0",
-  "description": "**Ditt projekt är att bygga en backend till kommande webplatsen HAMSTERWARS.**  Webplatsen är en spinoff på [Kittenwar](http://www.kittenwar.com), en hemsida där matcher mellan två bilder slumpas fram och publiken röstar på den de finner gulligast. Poäng ska räknas, listor ska sammanställas.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "start-dev": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iths-moa-granberg/hamsterwars.git"
-  },
-  "keywords": [],
-  "author": "Moa Granberg",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iths-moa-granberg/hamsterwars/issues"
-  },
-  "homepage": "https://github.com/iths-moa-granberg/hamsterwars#readme",
+  "name": "moas-hamsterwars",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
-    "firebase-admin": "^8.12.0"
-  },
-  "devDependencies": {
+    "firebase-admin": "^8.12.0",
     "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "BROWSER=none PORT=4001 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start-server-dev": "nodemon server/index.js"
+  },
+  "proxy": "http://localhost:3000",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

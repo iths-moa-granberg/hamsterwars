@@ -1,179 +1,68 @@
-# API Project: HAMSTERWARS
-**Ditt projekt är att bygga en backend till kommande webplatsen HAMSTERWARS.** 
-Webplatsen är en spinoff på [Kittenwar](http://www.kittenwar.com), en hemsida där matcher mellan två bilder slumpas fram och publiken röstar på den de finner gulligast. Poäng ska räknas, listor ska sammanställas. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Själva gränssnittet kommer ni göra som slutprojekt efter en skiss ( där egna designideer får utrymme ).
+## Available Scripts
 
-## Relevanta mål
+In the project directory, you can run:
 
-**Kunskaper**
-- Backend-programmering med Node.js
-- Pakethantering med NPM
+### `npm start`
 
-**Färdigheter**
-- Hantera paket med NPM vid utveckling av webbappplikationer
-- Utveckla server-funktionalitet med JavaScript
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Kompetenser**
-- Skapa en enklare server-lösning i JavaScript
-- Kunna välja och motivera val av ramverk och teknologier utifrån webbapplikationens omfattning och funktionalitet
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-## Bedömning
-**Godkänt**
-- Utvecklar Backendprogrammering med Node.js
-- Redogör för pakethantering med NPM
-- Skapar användarvänliga webbapplikationer
-- Utvecklar enklare serverfunktionalitet med JavaScript
-- Väljer och motiverar val av ramverk och teknologier utifrån webbapplikationens omfattning och
-funktionalitet
+### `npm test`
 
-**Väl Godkänt**
-- Utveckla *med säkerhet* Backendprogrammering med Node.js
-- Skapa *med säkerhet* användarvänliga webbapplikationer
-- Skapa *självständigt* en serverlösning i JavaScript
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-## Tekniker
-- Node.js
-- Express.js
-- Firebase Firestore ( npm firebase-admin )
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Inlämning
-- Ditt projekt ska inkomma senast **tors 14/5 kl 16**.
-- Du lämnar in en github-repo-länk i en *textfil* via ITHSdistans.se ( ironic framework ).
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## API spec
-|Resurs|Metod|Förväntat svar|
----|---|---
-|**/**|GET|Servar React-frontend senare.
+### `npm run eject`
 
-```javascript
-http://localhost:3000/
-```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-|Resurs|Metod|Förväntat svar|
----|---|---
-|**/assets/**|GET|Servar bilderna via en *static route*.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```javascript
-http://localhost:3000/assets/hamster-1.jpg
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-|Resurs|Metod|Förväntat svar|
----|---|---
-|**/hamsters**|GET|Returnerar en array med samtliga ```hamsterobject```.
-|**/hamsters/:id**|GET|Returnerar ett ```hamsterobject``` med efterfrågat id.
-|**/hamsters/:id/result**|PUT|Updaterar ett ```hamsterobject``` egenskaper: *wins*, *defeats* och +1 på *games*.
-|**/hamsters/random**|GET|Returnerar ett slumpat ```hamsterobject``` från databasen.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-```javascript
-// /hamsters
-[ { hamsterobject } ]
+## Learn More
 
-// /hamsters/1
-{ hamsterobject }
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-// /hamsters/random
-{ hamsterobject }
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```
+### Code Splitting
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-|Resurs|Metod|Förväntat svar|
----|---|---
-|**/charts/top**|GET|Returnerar en array med top 5 mest vinnande ```hamsterobject```.
-|**/charts/bottom**|GET|Returnerar en array med top 5 mest förlorande ```hamsterobject```.
+### Analyzing the Bundle Size
 
-```javascript
-[ { hamsterobject } ]
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
+### Making a Progressive Web App
 
-|Resurs|Metod|Förväntat svar|
----|---|---
-|**/games**|GET|Returnerar en array med samtliga ```matchobject``` som hållits.
-|**/games**|POST|Sparar en match med formatet ```{ timeStamp: Date, contestants: [{ hamsterobject }, { hamsterobject } ] }```.
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-```javascript
-[ { gameobject } ]
-```
+### Advanced Configuration
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
+### Deployment
 
-|Resurs|Metod|Förväntat svar|
----|---|---
-|**/stats/total**|GET|Returnerar ett ```statsobject``` med totalt antal matcher som hållits.
-|**/stats/{opt}**|GET|Känner er fria att sammanställa annan spännande statistik, ex. hur många % gillar majs? Vad är medelåldern på samtliga hamstrar, etc.
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-```javascript
-{ statsobject }
-```
+### `npm run build` fails to minify
 
-
-## Datamodeller
-
-### hamster object
-
-```javascript
-
-{
-    id: Number,
-    name: String,
-    imgName: String,    
-    favFood: String,
-    loves: String,
-    imgName: String,
-    wins: Number,
-    defeats: Number,
-    games: Number
-}
-
-```
-
-### game object
-
-```javascript
-{
-    id: Number,
-    timeStamp: Date,
-    contestants: [
-        { hamsterobject },
-        { hamsterobject }
-    ],
-    winner: { hamsterobject }
-}
-
-```
-
-### stats object
-
-```javascript
-{
-    totalGames: Number
-    ... // custom stats
-}
-
-```
-
-
-### Tänk på
-- Designa erat API _innan_ ni kodar det. Använd papper och penna, alt mindmapverktyg eller dyl.
-- Samtliga hamsterobjekt ska sparas i *Firebase firestore*. Varje hamster ska vara ett eget dokument.
-- Samtliga resurser ska routas vidare till *egna moduler*.
-- 40st bilder på hamstrar hittar du [här](https://www.dropbox.com/s/0v7ws0n9t5cfyww/hamsters.zip?dl=1). Samtliga bilder är CC licens och får användas.
-
-
-## Level ups
-
-### Säkra upp ditt API 
-Säkra upp ditt API med nyckel och Auth-middleware.
-
-
-### Chuck Norris level
-#### Upload
-Skapa funktionalitet där du själv kan ladda upp nya hamstrar.
-
-#### Storage
-Hosta bilderna i *Firebase/storage* istället för lokalt på din server.
-
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
