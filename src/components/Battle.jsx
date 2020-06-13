@@ -26,10 +26,16 @@ const Battle = () => {
     const handleClick = async (hamster) => {
         if (hamster.id === hamster1.id) {
             await setGameResult(hamster, hamster2);
-            history.push(`/matchup/${hamster.id}/${hamster2.id}/`);
+            history.push({
+                pathname: `/matchup/${hamster.id}/${hamster2.id}/`,
+                state: { winner: hamster, loser: hamster2 },
+            });
         } else {
             await setGameResult(hamster, hamster1);
-            history.push(`/matchup/${hamster.id}/${hamster1.id}/`);
+            history.push({
+                pathname: `/matchup/${hamster.id}/${hamster1.id}/`,
+                state: { winner: hamster, loser: hamster1 },
+            });
         }
     }
 

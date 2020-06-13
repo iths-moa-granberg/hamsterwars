@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { getHamsterById, getAgreeance } from '../fetchFunctions';
+import { Link, useLocation } from 'react-router-dom';
+import { getAgreeance } from '../fetchFunctions';
 import MatchHamster from './MatchHamster';
 
 const Matchup = () => {
-    const params = useParams();
-    const [winner, setWinner] = useState(null);
-    const [loser, setLoser] = useState(null);
+    const location = useLocation();
+    const winner = location.state.winner;
+    const loser = location.state.loser;
     const [agreeance, setAgreeance] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
-            setWinner(await getHamsterById(params.id1));
-            setLoser(await getHamsterById(params.id2));
-            setAgreeance(await getAgreeance(params.id1, params.id2));
+            setAgreeance(await getAgreeance({ winnerId: winner.id, loserId: loser.id }));
         }
         fetchData();
-    }, [params]);
+    }, [winner, loser]);
 
     if (!winner || !loser || !agreeance) {
         return 'loading';
