@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Start from './components/Start';
 import Battle from './components/Battle';
+import Matchup from './components/Matchup';
 
 const StyledHeader = styled.header`
   background-color: var(--main-color);
@@ -43,11 +44,11 @@ function App() {
 
       <main>
         <Switch>
-          <Route path="/matchup/:id1/:id2">matchup</Route>
           <Route path="/stats">stats</Route>
           <Route path="/upload">upload</Route>
           <Route path="/battle/:id1/:id2/"><Battle /></Route>
           <Route exact path="/battle/"><Battle /></Route>
+          <Route path="/matchup/:id1/:id2/"><Matchup /></Route>
           <Route exact path="/"><Start /></Route>
         </Switch>
       </main>
