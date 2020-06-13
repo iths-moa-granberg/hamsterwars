@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const dotenv = require('dotenv').config();
 
@@ -19,6 +20,10 @@ app.use('/api/hamsters', hamstersRoute);
 app.use('/api/charts', chartsRoute);
 app.use('/api/games', gamesRoute);
 app.use('/api/stats', statsRoute);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'))
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`server running at ${port}`));
