@@ -1,31 +1,37 @@
 export const getHamsterById = async (id) => {
     try {
-        return await (await fetch(`/api/hamsters/${id}`)).json();
+        const response = await fetch(`/api/hamsters/${id}/`);
+        const result = await response.json();
+        return result;
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
 export const getTwoRandomHamsters = async () => {
     try {
-        const hamster1 = await (await fetch(`/api/hamsters/random`)).json();
-        let hamster2 = await (await fetch(`/api/hamsters/random`)).json();
-        while (hamster1.id === hamster2.id) {
-            hamster2 = await (await fetch(`/api/hamsters/random`)).json();
-        }
+        const hamster1 = await getHamsterById('random');
+        let hamster2;
+        do {
+            hamster2 = await getHamsterById('random');
+        } while (hamster1.id === hamster2.id);
+
         return [hamster1, hamster2];
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
 export const getImage = async (hamster) => {
     try {
-        const response = await fetch(`/api/assets/${hamster.imgName}`);
+        const response = await fetch(`/api/assets/${hamster.imgName}/`);
         const image = await response.blob();
         return URL.createObjectURL(image);
     } catch (err) {
-        console.log(err);
+        console.error(err);
+    }
+}
+
 export const getAgreeance = async (winnerId, loserId) => {
     try {
         const response = await fetch(`/api/stats/agree/?winnerId=${winnerId}&loserId=${loserId}/`);

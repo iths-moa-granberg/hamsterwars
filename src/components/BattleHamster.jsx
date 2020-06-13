@@ -20,7 +20,10 @@ const BattleHamster = ({ hamster, handleClick }) => {
 
     useEffect(() => {
         if (hamster) {
-            (async () => setImg(await getImage(hamster)))();
+            const updateImage = async () => {
+                setImg(await getImage(hamster));
+            }
+            updateImage();
         }
     }, [hamster]);
 

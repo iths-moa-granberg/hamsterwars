@@ -34,20 +34,21 @@ function App() {
     <Router>
       <StyledHeader>
         <nav>
-          <Link to="/battle">Battle</Link>
-          <Link to="/stats">Stats</Link>
-          <Link to="/upload">Upload</Link>
+          <Link to="/">Start</Link>
+          <Link to="/battle/">Battle</Link>
+          <Link to="/stats/">Stats</Link>
+          <Link to="/upload/">Upload</Link>
         </nav>
       </StyledHeader>
 
       <main>
         <Switch>
-          <Route path="/battle/:id1/:id2"><Battle /></Route>
-          <Route path="/battle"><Battle /></Route>
           <Route path="/matchup/:id1/:id2">matchup</Route>
           <Route path="/stats">stats</Route>
           <Route path="/upload">upload</Route>
-          <Route path="/"><Start /></Route>
+          <Route path="/battle/:id1/:id2/"><Battle /></Route>
+          <Route exact path="/battle/"><Battle /></Route>
+          <Route exact path="/"><Start /></Route>
         </Switch>
       </main>
 

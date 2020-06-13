@@ -10,7 +10,7 @@ const Battle = () => {
     const [hamster2, setHamster2] = useState(null);
 
     useEffect(() => {
-        (async () => {
+        const getHamsters = async () => {
             if (params.id1 && params.id2) {
                 if (params.id1 === params.id2) {
                     console.log('hamsters can not battle themselves');
@@ -23,7 +23,8 @@ const Battle = () => {
                 setHamster1(hamsters[0]);
                 setHamster2(hamsters[1]);
             }
-        })();
+        }
+        getHamsters();
     }, [params]);
 
     const handleClick = async (hamster) => {
@@ -43,7 +44,7 @@ const Battle = () => {
                 <BattleHamster hamster={hamster2} handleClick={handleClick} />
             </div>
             <p>Click on the cutest hamster!</p>
-            <p>Can't decide? <span><Link to="/battle">Click for new hamsters</Link></span></p>
+            <p>Can't decide? <span><Link to="/battle/">Click for new hamsters</Link></span></p>
         </section >
     );
 }
