@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getAgreeance } from '../fetchFunctions';
 import MatchHamster from './MatchHamster';
+import styles from './Matchup.module.scss';
 
 const Matchup = () => {
     const location = useLocation();
@@ -21,7 +22,7 @@ const Matchup = () => {
     }
 
     return (
-        <section className="wrapper">
+        <section className={styles.root}>
             <div>
                 <MatchHamster hamster={winner} win={true} />
                 <MatchHamster hamster={loser} win={false} />
