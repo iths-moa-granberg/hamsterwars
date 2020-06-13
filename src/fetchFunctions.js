@@ -7,6 +7,7 @@ export const getHamsterById = async (id) => {
         return result;
     } catch (err) {
         console.error(err);
+        return null;
     }
 }
 
@@ -21,6 +22,7 @@ export const getTwoRandomHamsters = async () => {
         return [hamster1, hamster2];
     } catch (err) {
         console.error(err);
+        return null;
     }
 }
 

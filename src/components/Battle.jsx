@@ -6,18 +6,14 @@ import { getHamsterById, getTwoRandomHamsters, setGameResult } from '../fetchFun
 const Battle = () => {
     const params = useParams();
     const history = useHistory();
-    const [hamster1, setHamster1] = useState(null);
-    const [hamster2, setHamster2] = useState(null);
+    const [hamster1, setHamster1] = useState(undefined);
+    const [hamster2, setHamster2] = useState(undefined);
 
     useEffect(() => {
         const getHamsters = async () => {
             if (params.id1 && params.id2) {
-                if (params.id1 === params.id2) {
-                    console.log('hamsters can not battle themselves');
-                } else {
-                    setHamster1(await getHamsterById(params.id1));
-                    setHamster2(await getHamsterById(params.id2));
-                }
+                setHamster1(await getHamsterById(params.id1));
+                setHamster2(await getHamsterById(params.id2));
             } else {
                 const hamsters = await getTwoRandomHamsters();
                 setHamster1(hamsters[0]);
@@ -35,6 +31,18 @@ const Battle = () => {
             await setGameResult(hamster, hamster1);
             history.push(`/matchup/${hamster.id}/${hamster1.id}/`);
         }
+    }
+
+    if (hamster1 === null || hamster2 === null) {
+        return 'One of these hamsters does not exist';
+    }
+
+    if (!hamster1 || !hamster2) {
+        return 'Loading';
+    }
+
+    if (hamster1.id === hamster2.id) {
+        return 'Hamsters can not battle themselves';
     }
 
     return (
