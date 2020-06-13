@@ -2,8 +2,7 @@ export const getHamsterById = async (id) => {
     try {
         const response = await fetch(`/api/hamsters/${id}/`);
         const result = await response.json();
-        const imgUrl = await getImage(result);
-        result.imgUrl = imgUrl;
+        result.imgSrc = await getImage(result);
         return result;
     } catch (err) {
         console.error(err);
@@ -30,13 +29,13 @@ const getImage = async (hamster) => {
     try {
         const response = await fetch(`/api/assets/${hamster.imgName}/`);
         const image = await response.blob();
-        return URL.createObjectURL(image);
+        return image;
     } catch (err) {
         console.error(err);
     }
 }
 
-export const getAgreeance = async (winnerId, loserId) => {
+export const getAgreeance = async ({ winnerId, loserId }) => {
     try {
         const response = await fetch(`/api/stats/agree/?winnerId=${winnerId}&loserId=${loserId}/`);
         const data = await response.json();
