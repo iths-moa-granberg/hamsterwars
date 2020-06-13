@@ -1,0 +1,8 @@
+.root {
+    text-align: center;
+
+    > article > div {
+        display: flex;
+        justify-content: center;
+    }
+}

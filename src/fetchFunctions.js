@@ -74,3 +74,43 @@ export const setGameResult = async (winner, loser) => {
         console.error(err);
     }
 }
+
+export const getNumberOfGames = async () => {
+    try {
+        const response = await fetch('/api/games/');
+        const result = await response.json();
+        return Object.keys(result).length;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const getTop5 = async () => {
+    try {
+        const response = await fetch('/api/charts/top/');
+        const result = await response.json();
+
+        for (let hamster of result) {
+            hamster.imgSrc = await getImage(hamster);
+        }
+
+        return result;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const getBottom5 = async () => {
+    try {
+        const response = await fetch('/api/charts/bottom/');
+        const result = await response.json();
+
+        for (let hamster of result) {
+            hamster.imgSrc = await getImage(hamster);
+        }
+        
+        return result;
+    } catch (err) {
+        console.error(err);
+    }
+}
