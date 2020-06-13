@@ -2,6 +2,8 @@ export const getHamsterById = async (id) => {
     try {
         const response = await fetch(`/api/hamsters/${id}/`);
         const result = await response.json();
+        const imgUrl = await getImage(result);
+        result.imgUrl = imgUrl;
         return result;
     } catch (err) {
         console.error(err);
@@ -22,7 +24,7 @@ export const getTwoRandomHamsters = async () => {
     }
 }
 
-export const getImage = async (hamster) => {
+const getImage = async (hamster) => {
     try {
         const response = await fetch(`/api/assets/${hamster.imgName}/`);
         const image = await response.blob();
