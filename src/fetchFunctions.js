@@ -26,5 +26,42 @@ export const getImage = async (hamster) => {
         return URL.createObjectURL(image);
     } catch (err) {
         console.log(err);
+export const getAgreeance = async (winnerId, loserId) => {
+    try {
+        const response = await fetch(`/api/stats/agree/?winnerId=${winnerId}&loserId=${loserId}/`);
+        const data = await response.json();
+        return data.agreeancePercentage;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const setGameResult = async (winner, loser) => {
+    const headers = { 'Content-Type': 'application/json' };
+
+    try {
+        //post game
+        fetch('/api/games/', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({ contestants: [winner, loser], winner }),
+        });
+
+        //update winning hamster
+        fetch(`/api/hamsters/${winner.id}/result/`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify({ wins: 1, defeats: 0 }),
+        });
+
+        //update losing hamster
+        fetch(`/api/hamsters/${loser.id}/result/`, {
+            method: 'PUT',
+            headers,
+            body: JSON.stringify({ wins: 0, defeats: 1 }),
+        });
+
+    } catch (err) {
+        console.error(err);
     }
 }

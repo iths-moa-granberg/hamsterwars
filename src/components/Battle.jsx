@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import BattleHamster from './BattleHamster';
-import { getHamsterById, getTwoRandomHamsters } from '../fetchFunctions';
+import { getHamsterById, getTwoRandomHamsters, setGameResult } from '../fetchFunctions';
 
 const Battle = () => {
     const params = useParams();
+    const history = useHistory();
     const [hamster1, setHamster1] = useState(null);
     const [hamster2, setHamster2] = useState(null);
 
@@ -25,8 +26,14 @@ const Battle = () => {
         })();
     }, [params]);
 
-    const handleClick = (hamster) => {
-        console.log('you clikced on', hamster.name);
+    const handleClick = async (hamster) => {
+        if (hamster.id === hamster1.id) {
+            await setGameResult(hamster, hamster2);
+            history.push(`/matchup/${hamster.id}/${hamster2.id}/`);
+        } else {
+            await setGameResult(hamster, hamster1);
+            history.push(`/matchup/${hamster.id}/${hamster1.id}/`);
+        }
     }
 
     return (
