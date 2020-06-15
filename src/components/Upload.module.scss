@@ -1,0 +1,34 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        input[type=file] {
+            margin: 1em;
+        }
+
+        .valid {
+            border: 1px solid green;
+        }
+
+        .invalid {
+            border: 1px solid red;
+        }
+        
+        > .text-fields-wrapper {
+            width: 100%;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin: .7em;
+            }
+        }
+    }
+}

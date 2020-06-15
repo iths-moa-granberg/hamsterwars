@@ -108,9 +108,55 @@ export const getBottom5 = async () => {
         for (let hamster of result) {
             hamster.imgSrc = await getImage(hamster);
         }
-        
+
         return result;
     } catch (err) {
         console.error(err);
     }
+}
+
+export const getNewId = async () => {
+    try {
+        const response = await fetch('/api/hamsters/');
+        const result = await response.json();
+        return result.length + 1;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+const postImg = async (imgFile, imgName) => {
+    try {
+        let formData = new FormData();
+        formData.append('photo', imgFile, imgName);
+
+        const response = await fetch('/api/assets/', {
+            method: 'POST',
+            body: formData,
+        });
+        const result = await response.json();
+        return result;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+const postHamster = async (hamster) => {
+    try {
+        const response = await fetch('/api/hamsters/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(hamster),
+        });
+        const result = await response.json();
+        return result;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+export const addHamster = (hamster, imgFile) => {
+    return postImg(imgFile, hamster.imgName) && postHamster(hamster);
 }

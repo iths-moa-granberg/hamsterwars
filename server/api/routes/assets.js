@@ -21,7 +21,7 @@ router.get('/:filename', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const imgName = req.files.photo.name;
-        const path = `./api/uploads/${imgName}`;
+        const path = `./server/api/uploads/${imgName}`;
 
         await req.files.photo.mv(path, err => { if (err) throw err; });
 
