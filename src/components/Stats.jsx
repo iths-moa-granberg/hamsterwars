@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getNumberOfGames, getTop5, getBottom5 } from '../fetchFunctions';
 import StatsHamster from './StatsHamster';
+import LoadingSpinner from './LoadingSpinner';
 import styles from './Stats.module.scss';
 
 const Stats = () => {
@@ -15,11 +16,10 @@ const Stats = () => {
             setBottom5(await getBottom5());
         }
         fetchData();
-
     }, []);
 
     if (!top5 || !bottom5) {
-        return 'loading';
+        return <LoadingSpinner />;
     }
 
     return (

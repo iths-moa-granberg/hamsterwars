@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getAgreeance } from '../fetchFunctions';
 import MatchHamster from './MatchHamster';
+import LoadingSpinner from './LoadingSpinner';
 import styles from './Matchup.module.scss';
 
 const Matchup = () => {
@@ -18,7 +19,7 @@ const Matchup = () => {
     }, [winner, loser]);
 
     if (!winner || !loser || !agreeance) {
-        return 'loading';
+        return <LoadingSpinner />;
     }
 
     return (
