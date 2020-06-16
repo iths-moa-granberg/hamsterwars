@@ -37,13 +37,14 @@
 @media screen and (min-width: 1052px) {
   .root {
     height: 5em;
+    
+    nav > div {
+      margin: 7em;
+    }
+  
+    a {
+      margin: 2em;
+    }
   }
 
-  nav > div {
-    margin: 7em;
-  }
-
-  a {
-    margin: 2em;
-  }
 }
