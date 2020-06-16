@@ -16,7 +16,7 @@ const StyledFooter = styled.footer`
   bottom 0;
   right: 0;
   width: 100vw;
-  height: 5em;
+  height: 4em;
 `;
 
 function App() {

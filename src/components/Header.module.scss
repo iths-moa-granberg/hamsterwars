@@ -28,6 +28,10 @@
     font-weight: 600;
     font-size: 15px;
   }
+  
+  a:hover {
+    color: var(--lightgrey);
+  }
 }
 
 @media screen and (min-width: 1052px) {
