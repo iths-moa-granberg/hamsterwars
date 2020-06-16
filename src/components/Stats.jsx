@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getNumberOfGames, getTop5, getBottom5 } from '../fetchFunctions';
+import { getNumberOfGames, getTop5, getBottom5, getNumberOfHamsters } from '../fetchFunctions';
 import StatsHamster from './StatsHamster';
 import LoadingSpinner from './LoadingSpinner';
 import styles from './Stats.module.scss';
@@ -8,10 +8,12 @@ const Stats = () => {
     const [top5, setTop5] = useState(undefined);
     const [bottom5, setBottom5] = useState(undefined);
     const [numOfGames, setNumOfGames] = useState(0);
+    const [numOfHamsters, setNumOfHamsters] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
             setNumOfGames(await getNumberOfGames());
+            setNumOfHamsters(await getNumberOfHamsters());
             setTop5(await getTop5());
             setBottom5(await getBottom5());
         }
@@ -24,18 +26,19 @@ const Stats = () => {
 
     return (
         <div className={styles.root}>
-            <p>Total number of games played: {numOfGames}</p>
-            <article>
-                <h2>Top 5 hamsters</h2>
+            <p>Total number of games played: <span>{numOfGames}</span></p>
+            <p>Total number of hamsters: <span>{numOfHamsters}</span></p>
+            <article className={styles.hamsters}>
                 <div>
-                    {top5.map(hamster => <StatsHamster key={hamster.id} hamster={hamster} win={true} />)}
+                    <h2>Top 5 hamsters</h2>
                 </div>
+                {top5.map(hamster => <StatsHamster key={hamster.id} hamster={hamster} win={true} />)}
             </article>
-            <article>
-                <h2>Bottom 5 hamsters</h2>
+            <article className={styles.hamsters}>
                 <div>
-                    {bottom5.map(hamster => <StatsHamster key={hamster.id} hamster={hamster} />)}
+                    <h2>Bottom 5 hamsters</h2>
                 </div>
+                {bottom5.map(hamster => <StatsHamster key={hamster.id} hamster={hamster} />)}
             </article>
         </div>
     );

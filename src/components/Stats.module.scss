@@ -1,8 +1,46 @@
 .root {
-    text-align: center;
+  text-align: center;
 
-    > article > div {
-        display: flex;
-        justify-content: center;
+  > p {
+    font-weight: 600;
+    color: var(--alternate-color);
+    span {
+      color: var(--black);
     }
+  }
+
+  > p:nth-of-type(even) {
+    color: #0277bd;
+  }
+
+  .hamsters {
+    margin: 4em 0;
+    padding-top: 3em;
+    border-top: 10px dotted #00897b;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      color: var(--secondary-color);
+      font-size: 28px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1052px) {
+  .root {
+    .hamsters {
+      display: grid;
+      grid: 1fr 1fr / 1fr 1fr 1fr;
+      gap: 2em;
+      margin: 5em 0;
+      padding-top: 5em;
+    }
+  }
 }

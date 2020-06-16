@@ -115,11 +115,20 @@ export const getBottom5 = async () => {
     }
 }
 
-export const getNewId = async () => {
+export const getNumberOfHamsters = async () => {
     try {
         const response = await fetch('/api/hamsters/');
         const result = await response.json();
-        return result.length + 1;
+        return result.length;
+    } catch(err) {
+        console.error(err);
+    }
+}
+
+export const getNewId = async () => {
+    try {
+        const result = await getNumberOfHamsters();
+        return result + 1;
     } catch (err) {
         console.error(err);
     }
