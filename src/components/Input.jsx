@@ -1,15 +1,16 @@
 import React from 'react';
+import styles from './Input.module.scss';
 
 const Input = ({ label, placeholder, handleOnChange, handleOnBlur, className, error }) => {
     return (
-        <div>
-            <label>{label}</label>
-            <input type="text" placeholder={placeholder}
+        <div className={styles.root}>
+            <label for={label}>{label}</label>
+            <input type="text" name={label} id={label} placeholder={placeholder}
                 onChange={e => handleOnChange(e.target.value)}
                 onBlur={() => handleOnBlur(true)}
-                className={className}
+                className={styles[className]}
             />
-            {error && <p>{error}</p>}
+            <p className={'error'}>{error}</p>
         </div>
     );
 }

@@ -62,7 +62,7 @@ const Upload = () => {
         return (
             <div className={styles.root}>
                 <h1>Something went wrong...</h1>
-                <Link to="/upload/">Try again?</Link>
+                <Link to="/upload/" className="primary-btn">Try again</Link>
             </div>
         );
     }
@@ -78,34 +78,41 @@ const Upload = () => {
                         placeholder="Name of hamster"
                         handleOnChange={setName}
                         handleOnBlur={setNameTouched}
-                        className={styles[nameClass]}
+                        className={nameClass}
                         error={nameError} />
                     <Input
                         label="Age"
                         placeholder="Hamster's age in numbers"
                         handleOnChange={setAge}
                         handleOnBlur={setAgeTouched}
-                        className={styles[ageClass]}
+                        className={ageClass}
                         error={ageError} />
                     <Input
                         label="Favorite food"
                         placeholder="Hamster's favorite food"
                         handleOnChange={setFavFood}
                         handleOnBlur={setFavFoodTouched}
-                        className={styles[favFoodClass]}
+                        className={favFoodClass}
                         error={favFoodError} />
                     <Input
                         label="Loves"
                         placeholder="Hamster's passion"
                         handleOnChange={setLoves}
                         handleOnBlur={setLovesTouched}
-                        className={styles[lovesClass]}
+                        className={lovesClass}
                         error={lovesError} />
                 </div>
-                <input type="file" ref={fileInput}
+                <input type="file" name="img-input" id="img-input" ref={fileInput}
                     onChange={() => setImg(fileInput.current.files[0])}
                     onBlur={() => setImgTouched(true)} />
-                <button type="submit" disabled={!formIsValid}
+                <label for="img-input">
+                    <span class="material-icons">present_to_all</span>
+                    {img ? `${img.name} selected` : 'Choose image'}
+                </label>
+                <p className="error">{!img && imgTouched && 'Please enter an image of the hamster'}</p>
+                <button type="submit" 
+                    disabled={!formIsValid} 
+                    className="primary-btn"
                     onClick={e => handleAddHamster(e)}
                 >Add hamster</button>
             </form>

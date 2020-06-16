@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-top: 0.5em;
+  }
+
+  input[type="text"] {
+    padding-left: 0.4em;
+    margin: 0.5em 0 0.3em 0;
+    height: 25px;
+    border: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  input[type="text"].valid {
+    border-bottom: 2px solid green;
+  }
+
+  input[type="text"].invalid {
+    border-bottom: 2px solid #e61405;
+  }
+}

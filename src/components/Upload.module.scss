@@ -1,34 +1,47 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1,
+  p {
+    text-align: center;
+  }
+
+  form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        input[type=file] {
-            margin: 1em;
-        }
-
-        .valid {
-            border: 1px solid green;
-        }
-
-        .invalid {
-            border: 1px solid red;
-        }
-        
-        > .text-fields-wrapper {
-            width: 100%;
-
-            > div {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                margin: .7em;
-            }
-        }
+    input[type="file"] {
+      position: absolute;
+      z-index: -1;
     }
+
+    > label {
+      margin: 1.2em 0 0.3em 0;
+      background-color: var(--black);
+      color: var(--white);
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      span {
+        margin-right: 0.5em;
+      }
+    }
+
+    > .text-fields-wrapper {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    button {
+      margin: 2.5em 0;
+      font-size: 18px;
+    }
+  }
 }
