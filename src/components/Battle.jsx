@@ -3,6 +3,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import BattleHamster from './BattleHamster';
 import LoadingSpinner from './LoadingSpinner';
 import { getHamsterById, getTwoRandomHamsters, setGameResult } from '../fetchFunctions';
+import styles from './Battle.module.scss';
 
 const Battle = () => {
     const params = useParams();
@@ -53,13 +54,14 @@ const Battle = () => {
     }
 
     return (
-        <section className="wrapper">
-            <div className="hamsters">
+        <section className={styles.root}>
+            <h1>Click on the cutest hamster!</h1>
+            <div>
                 <BattleHamster hamster={hamster1} handleClick={handleClick} />
                 <BattleHamster hamster={hamster2} handleClick={handleClick} />
             </div>
-            <p>Click on the cutest hamster!</p>
-            <p>Can't decide? <span><Link to="/battle/">Click for new hamsters</Link></span></p>
+            <p>Can't decide?</p>
+            <Link to="/battle/" className="primary-btn">Click for new hamsters</Link>
         </section >
     );
 }

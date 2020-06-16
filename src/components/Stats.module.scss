@@ -10,13 +10,13 @@
   }
 
   > p:nth-of-type(even) {
-    color: #0277bd;
+    color: var(--blueish-color);
   }
 
   .hamsters {
     margin: 4em 0;
     padding-top: 3em;
-    border-top: 10px dotted #00897b;
+    border-top: 10px dotted var(--greenbluish-color);
     display: flex;
     flex-direction: column;
 
