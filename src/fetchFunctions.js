@@ -50,21 +50,21 @@ export const setGameResult = async (winner, loser) => {
 
     try {
         //post game
-        fetch('/api/games/', {
+        await fetch('/api/games/', {
             method: 'POST',
             headers,
             body: JSON.stringify({ contestants: [winner, loser], winner }),
         });
 
         //update winning hamster
-        fetch(`/api/hamsters/${winner.id}/result/`, {
+        await fetch(`/api/hamsters/${winner.id}/result/`, {
             method: 'PUT',
             headers,
             body: JSON.stringify({ wins: 1, defeats: 0 }),
         });
 
         //update losing hamster
-        fetch(`/api/hamsters/${loser.id}/result/`, {
+        await fetch(`/api/hamsters/${loser.id}/result/`, {
             method: 'PUT',
             headers,
             body: JSON.stringify({ wins: 0, defeats: 1 }),
