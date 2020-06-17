@@ -7,6 +7,7 @@
   --darker-alternate-color: #b9352a;
   --greenbluish-color: #00897b;
   --blueish-color: #0277bd;
+  --darker-blueish-color: #024e7a;
 
   --white: #f0f0f0;
   --lightgrey: #d2d2d2;
@@ -45,11 +46,10 @@ main {
   justify-content: center;
 }
 
-.primary-btn {
+.primary-btn, .secondary-btn {
   font-family: var(--main-font);
   text-decoration: none;
   color: var(--white);
-  background-color: var(--secondary-color);
   padding: 0.7em 2em;
   border-radius: 21px;
   border: none;
@@ -57,6 +57,10 @@ main {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
     0 16px 16px rgba(0, 0, 0, 0.12);
+}
+
+.primary-btn {
+  background-color: var(--secondary-color);
 }
 
 .primary-btn:hover {
@@ -68,6 +72,15 @@ main {
   background-color: var(--darker-secondary-color);
   box-shadow: none;
   opacity: 0.5;
+}
+
+.secondary-btn {
+  background-color: var(--blueish-color);
+}
+
+.secondary-btn:hover {
+  background-color: var(--darker-blueish-color);
+  cursor: pointer;
 }
 
 p.error {

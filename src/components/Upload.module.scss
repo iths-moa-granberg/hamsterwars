@@ -12,6 +12,17 @@
     text-align: center;
   }
 
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+    a {
+      margin: 0.5em;
+    }
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -46,6 +57,14 @@
     button {
       margin: 2.5em 0;
       font-size: 18px;
+    }
+  }
+}
+
+@media screen and (min-width: 1052px) {
+  .root {
+    .links {
+      flex-direction: row;
     }
   }
 }

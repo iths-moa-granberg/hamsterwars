@@ -49,11 +49,18 @@ const Upload = () => {
             setSuccessfulUpload(false);
         }
     }
+    const handleReload = () => {
+        window.location.reload(false);
+    }
 
     if (successfulUpload) {
         return (
             <div className={styles.root}>
                 <h1>{name} was successfully uploaded!</h1>
+                <div className={styles.links}>
+                    <Link to="/battle/" className="primary-btn">Start the battle!</Link>
+                    <Link to="/upload/" className="secondary-btn" onClick={handleReload}>Upload another hamster</Link>
+                </div>
             </div>
         );
     }
@@ -105,8 +112,8 @@ const Upload = () => {
                 <input type="file" name="img-input" id="img-input" ref={fileInput}
                     onChange={() => setImg(fileInput.current.files[0])}
                     onBlur={() => setImgTouched(true)} />
-                <label for="img-input">
-                    <span class="material-icons">present_to_all</span>
+                <label htmlFor="img-input">
+                    <span className="material-icons">present_to_all</span>
                     {img ? `${img.name} selected` : 'Choose image'}
                 </label>
                 <p className="error">{!img && imgTouched && 'Please enter an image of the hamster'}</p>
