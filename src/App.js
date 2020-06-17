@@ -8,6 +8,7 @@ import Matchup from './components/Matchup';
 import Stats from './components/Stats';
 import Upload from './components/Upload';
 import Header from './components/Header';
+import Hamster from './components/Hamster';
 
 const StyledFooter = styled.footer`
   background-color: var(--primary-color);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/matchup/:id1/:id2/"><Matchup /></Route>
           <Route path="/stats/"><Stats /></Route>
           <Route path="/upload/"><Upload /></Route>
+          <Route path="/hamster/:id"><Hamster /></Route>
           <Route exact path="/"><Start /></Route>
         </Switch>
       </main>
