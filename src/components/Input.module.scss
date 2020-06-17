@@ -14,13 +14,13 @@
     border-radius: 2px;
     box-sizing: border-box;
     outline: none;
-  }
 
-  input[type="text"].valid {
-    border-bottom: 2px solid green;
-  }
+    &.valid {
+      border-bottom: 2px solid green;
+    }
 
-  input[type="text"].invalid {
-    border-bottom: 2px solid #e61405;
+    &.invalid {
+      border-bottom: 2px solid #e61405;
+    }
   }
 }

@@ -13,8 +13,8 @@ const MatchHamster = ({ hamster, win }) => {
         <div className={styles.root}>
             <h2 className={win ? styles.winner : styles.loser}>{win ? 'Winner!' : 'Loser!'}</h2>
             <img src={URL.createObjectURL(hamster.imgSrc)} alt="hamster" 
-            className={win ? styles['winner'] : styles['loser']}
-            onClick={handleClick}/>
+                className={win ? styles['winner'] : styles['loser']}
+                onClick={handleClick}/>
         </div>
     );
 }

@@ -13,6 +13,10 @@
   h1 {
     color: var(--greenbluish-color);
     margin: 0.5em;
+
+    @media screen and( min-width: 1052px) {
+      font-size: 28px;
+    }
   }
 
   > p {
@@ -21,13 +25,5 @@
 
   > a {
     margin-bottom: 2em;
-  }
-}
-
-@media screen and (min-width: 1052px) {
-  .root {
-    h1 {
-      font-size: 28px;
-    }
   }
 }

@@ -4,6 +4,11 @@
   > div {
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width: 1052px) {
+      flex-direction: row;
+    }
+    
     > div {
       display: flex;
       flex-direction: column;
@@ -24,35 +29,31 @@
     height: 35vw;
     min-width: 200px;
     min-height: 200px;
+
+    @media screen and (min-width: 1052px) {
+      margin-right: 2em;
+    }
   }
 
   p {
     color: var(--secondary-color);
     margin: 0.4em;
-  }
-  p:nth-of-type(even) {
-    color: var(--alternate-color);
-  }
-  p:nth-of-type(3) {
-    color: var(--blueish-color);
-  }
-  p:nth-of-type(4) {
-    color: var(--greenbluish-color);
+
+    &:nth-of-type(even) {
+      color: var(--alternate-color);
+    }
+
+    &:nth-of-type(3) {
+      color: var(--blueish-color);
+    }
+
+    &:nth-of-type(4) {
+      color: var(--greenbluish-color);
+    }
   }
 
   a {
     margin: 2em 0;
     align-self: center;
-  }
-}
-
-@media screen and (min-width: 1052px) {
-  .root {
-    > div {
-      flex-direction: row;
-    }
-    img {
-      margin-right: 2em;
-    }
   }
 }

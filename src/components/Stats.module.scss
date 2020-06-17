@@ -4,13 +4,14 @@
   > p {
     font-weight: 600;
     color: var(--alternate-color);
+
     span {
       color: var(--black);
     }
-  }
 
-  > p:nth-of-type(even) {
-    color: var(--blueish-color);
+    &:nth-of-type(even) {
+      color: var(--blueish-color);
+    }
   }
 
   .hamsters {
@@ -19,6 +20,14 @@
     border-top: 10px dotted var(--greenbluish-color);
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width: 1052px) {
+      display: grid;
+      grid: 1fr 1fr / 1fr 1fr 1fr;
+      gap: 2em;
+      margin: 5em 0;
+      padding-top: 5em;
+    }
 
     h2 {
       color: var(--secondary-color);
@@ -29,18 +38,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-  }
-}
-
-@media screen and (min-width: 1052px) {
-  .root {
-    .hamsters {
-      display: grid;
-      grid: 1fr 1fr / 1fr 1fr 1fr;
-      gap: 2em;
-      margin: 5em 0;
-      padding-top: 5em;
     }
   }
 }

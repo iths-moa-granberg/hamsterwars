@@ -18,6 +18,11 @@
     align-items: center;
     justify-content: center;
     margin-top: 3em;
+
+    @media screen and (min-width: 1052px) {
+      flex-direction: row;
+    }
+
     a {
       margin: 0.5em;
     }
@@ -57,14 +62,6 @@
     button {
       margin: 2.5em 0;
       font-size: 18px;
-    }
-  }
-}
-
-@media screen and (min-width: 1052px) {
-  .root {
-    .links {
-      flex-direction: row;
     }
   }
 }

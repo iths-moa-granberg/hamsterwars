@@ -1,8 +1,8 @@
 import React, { useState, createRef } from 'react';
-import styles from './Upload.module.scss';
-import { getNewId, addHamster } from '../fetchFunctions';
 import { Link } from 'react-router-dom';
 import Input from './Input';
+import { getNewId, addHamster } from '../fetchFunctions';
+import styles from './Upload.module.scss';
 
 const Upload = () => {
     const fileInput = createRef();
@@ -20,12 +20,12 @@ const Upload = () => {
     const [lovesTouched, setLovesTouched] = useState(false);
     const [imgTouched, setImgTouched] = useState(false);
 
-    let [nameClass, nameError] = nameTouched ? validateName(name) : ['', ''];
-    let [ageClass, ageError] = ageTouched ? validateAge(age) : ['', ''];
-    let [favFoodClass, favFoodError] = favFoodTouched ? validateFavFood(favFood) : ['', ''];
-    let [lovesClass, lovesError] = lovesTouched ? validateLoves(loves) : ['', ''];
+    const [nameClass, nameError] = nameTouched ? validateName(name) : ['', ''];
+    const [ageClass, ageError] = ageTouched ? validateAge(age) : ['', ''];
+    const [favFoodClass, favFoodError] = favFoodTouched ? validateFavFood(favFood) : ['', ''];
+    const [lovesClass, lovesError] = lovesTouched ? validateLoves(loves) : ['', ''];
 
-    let formIsValid = nameError === '' && ageError === '' && favFoodError === '' && lovesError === '' && img
+    const formIsValid = nameError === '' && ageError === '' && favFoodError === '' && lovesError === '' && img
         && nameTouched && ageTouched && favFoodTouched && lovesTouched && imgTouched;
 
     const handleAddHamster = async (e) => {

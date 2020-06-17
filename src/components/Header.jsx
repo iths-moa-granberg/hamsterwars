@@ -9,8 +9,8 @@ const Header = () => {
                 <div>
                     <Link to="/">
                         <span role="img" aria-label="hamster">🐹</span>
-                    Hamsterwars
-                </Link>
+                        Hamsterwars
+                    </Link>
                 </div>
                 <div>
                     <Link to="/battle/">Battle</Link>

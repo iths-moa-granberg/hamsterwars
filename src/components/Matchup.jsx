@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { getAgreeance } from '../fetchFunctions';
 import MatchHamster from './MatchHamster';
 import LoadingSpinner from './LoadingSpinner';
+import { getAgreeance } from '../fetchFunctions';
 import styles from './Matchup.module.scss';
 
 const Matchup = () => {

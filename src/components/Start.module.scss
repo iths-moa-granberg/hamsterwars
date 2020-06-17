@@ -4,21 +4,17 @@
 
   h1 {
     font-size: 36px;
+
+    @media screen and (min-width: 1052px) {
+      font-size: 86px;
+    }
   }
 
   a {
     margin: 4em 0;
-  }
-}
 
-@media screen and (min-width: 1052px) {
-    .root {
-        h1 {
-            font-size: 86px;
-        }
-
-        a {
-            margin: 3em 0;
-        }
+    @media screen and (min-width: 1052px) {
+      margin: 3em 0;
     }
+  }
 }
