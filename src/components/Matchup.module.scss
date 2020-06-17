@@ -1,11 +1,16 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    > div {
-        display: flex;
-        justify-content: center;
-    }
+  > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  > a {
+    margin: 2em 0;
+  }
 }

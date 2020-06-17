@@ -4,8 +4,8 @@
 
   > img {
     object-fit: cover;
-    width: 200px;
-    height: 200px;
+    width: 40vw;
+    height: 40vw;
     border-radius: 4px;
   }
 
@@ -22,5 +22,10 @@
 @media screen and (min-width: 1052px) {
   .hamster {
     margin: 0;
+
+    >img {
+      width: 250px;
+      height: 250px;
+    }
   }
 }

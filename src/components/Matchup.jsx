@@ -9,7 +9,7 @@ const Matchup = () => {
     const location = useLocation();
     const winner = location.state.winner;
     const loser = location.state.loser;
-    const [agreeance, setAgreeance] = useState(0);
+    const [agreeance, setAgreeance] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,7 +18,7 @@ const Matchup = () => {
         fetchData();
     }, [winner, loser]);
 
-    if (!winner || !loser || !agreeance) {
+    if (!winner || !loser || !agreeance) {        
         return <LoadingSpinner />;
     }
 
@@ -29,7 +29,7 @@ const Matchup = () => {
                 <MatchHamster hamster={loser} win={false} />
             </div>
             <p>{agreeance}% agrees that {winner.name} is cuter than {loser.name}</p>
-            <Link to="/battle/">New game?</Link>
+            <Link to="/battle/" className="primary-btn">New game?</Link>
         </section>
     );
 }
