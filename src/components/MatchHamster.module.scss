@@ -7,16 +7,10 @@
 
   > img {
     object-fit: cover;
-  }
-
-  img.winner {
     width: 35vw;
+    max-width: 450px;
     height: 35vw;
-  }
-
-  img.loser {
-    width: 35vw;
-    height: 35vw;
+    max-height: 450px;
   }
 
   h2.winner {

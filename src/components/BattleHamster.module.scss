@@ -13,7 +13,10 @@
     object-fit: cover;
     border-radius: 4px;
     width: 40vw;
+    max-width: 450px;
     height: 40vw;
+    max-height: 450px;
+    cursor: pointer;
   }
 }
 
