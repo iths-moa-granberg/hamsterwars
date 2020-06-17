@@ -12,12 +12,16 @@ import Hamster from './components/Hamster/Hamster';
 
 const StyledFooter = styled.footer`
   background-color: var(--primary-color);
-  color: var(--white);
+  color: var(--black);
+  font-weight: 600;
   position: absolute;
   bottom 0;
   right: 0;
   width: 100vw;
   height: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 function App() {
@@ -50,7 +54,12 @@ function App() {
         </Switch>
       </main>
 
-      <StyledFooter></StyledFooter>
+      <StyledFooter>
+        <span role="img" aria-label="hamster">
+          🐹
+        </span>
+        Hamsterwars
+      </StyledFooter>
     </Router>
   );
 }
