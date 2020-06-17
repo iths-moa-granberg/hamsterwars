@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import StatsHamster from './StatsHamster';
-import LoadingSpinner from './LoadingSpinner';
-import { getNumberOfGames, getTop5, getBottom5, getNumberOfHamsters } from '../fetchFunctions';
+import StatsHamster from './StatsHamster/StatsHamster';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { getNumberOfGames, getTop5, getBottom5, getNumberOfHamsters } from '../../fetchFunctions';
 import styles from './Stats.module.scss';
 
 const Stats = () => {

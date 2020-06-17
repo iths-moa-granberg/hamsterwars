@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory, Link } from 'react-router-dom';
-import BattleHamster from './BattleHamster';
-import LoadingSpinner from './LoadingSpinner';
-import { getHamsterById, getTwoRandomHamsters, setGameResult } from '../fetchFunctions';
+import BattleHamster from './BattleHamster/BattleHamster';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { getHamsterById, getTwoRandomHamsters, setGameResult } from '../../fetchFunctions';
 import styles from './Battle.module.scss';
 
 const Battle = () => {

@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import Start from './components/Start';
-import Battle from './components/Battle';
-import Matchup from './components/Matchup';
-import Stats from './components/Stats';
-import Upload from './components/Upload';
-import Header from './components/Header';
-import Hamster from './components/Hamster';
+import Start from './components/Start/Start';
+import Battle from './components/Battle/Battle';
+import Matchup from './components/Matchup/Matchup';
+import Stats from './components/Stats/Stats';
+import Upload from './components/Upload/Upload';
+import Header from './components/Header/Header';
+import Hamster from './components/Hamster/Hamster';
 
 const StyledFooter = styled.footer`
   background-color: var(--primary-color);

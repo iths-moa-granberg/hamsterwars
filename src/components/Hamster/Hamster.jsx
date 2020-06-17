@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import LoadingSpinner from './LoadingSpinner';
-import { getHamsterById } from '../fetchFunctions';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { getHamsterById } from '../../fetchFunctions';
 import styles from './Hamster.module.scss';
 
 const Hamster = () => {

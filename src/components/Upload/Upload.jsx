@@ -1,7 +1,7 @@
 import React, { useState, createRef } from 'react';
 import { Link } from 'react-router-dom';
-import Input from './Input';
-import { getNewId, addHamster } from '../fetchFunctions';
+import Input from './Input/Input';
+import { getNewId, addHamster } from '../../fetchFunctions';
 import styles from './Upload.module.scss';
 
 const Upload = () => {
